@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;  
+}
+
+h1.title{
+    font-weight: 800 !important;
+    font-size: 15em !important;
+    padding: 1.5em 0;
+}
+
+nav #userImg img{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+}
+
+#user form img{
+    width: 180px;
+    height: 180px;
+    margin: 20px;
+    border-radius: 300px;
+}
+#user .form-control{
+  width: 250px;
+  margin: auto;
+}
+
+#logos img{
+    width: 150px;
+    margin: 20px 15px;
+}
+
+#sketch{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;  
+    align-items: center;  
+}
+
+#aboutimg{
+    background-image: url(../img/digital-background.jpg);
+    background-size: contain;
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    background-position: 350px;
+}
+
+footer{
+    background-color: #f0f0f0;
+    padding: 20px;
+    z-index: 999;
+    text-align: right;
+}

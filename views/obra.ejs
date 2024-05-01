@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- My Style-->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- Bootstrap Style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
+
+    <title>Obra</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        let ejsData = <%- data %>;
+        let users;
+        
+        socket.on('usuariosActivos', (usuarios) => {
+            // Actualizar la interfaz con la lista de usuarios activos
+            const listaUsuarios = document.getElementById('numeroUsuarios');
+            listaUsuarios.innerHTML ="Usuarios Conectados: " + usuarios.length;
+            users = usuarios.length;
+        });
+    </script>
+
+    <!-- P5.JS Scripts -->
+    <script type="text/javascript" src="p5.min.js"></script>
+    <script src="p5.easycam.js"></script>
+    <script type="text/javascript" src="sketch/sketch.js"></script>
+</head>
+<body>    
+
+    <%- include('partials/nav') , {log: log} , {userImg ,userImg} %>
+    <hr><br>
+    <h1 class="text-center">Sketch Colaborativo</h1>
+    <br><hr>
+    <div class="d-flex text-center justify-content-center">
+        <span style="margin-right: 6px;"><img src="img/online.png" alt="" width="20px"></span>
+        <div>
+            <h4 id="numeroUsuarios"> </h4>
+        </div>
+    </div>
+    <div id='contenedor-canvas' class="m-auto d-flex justify-content-center"></div>
+    <%- include ('partials/foot') %>

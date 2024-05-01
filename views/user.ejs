@@ -1,0 +1,47 @@
+<%- include('partials/head', { title: title || 'Sin título' }) -%>
+<%- include('partials/nav') , {log: log} ,  {imgPath : imgPath}  %>
+
+<main>
+<% if(alert != null) { %>
+    <% if(alert) { %>
+        <div class="alert alert-success" role="alert">
+            Los datos fueron cambiados con exito
+        </div>
+    <% } else { %>
+        <div class="alert alert-danger" role="alert">
+            El nombre de usuario y/o contraseña ya existen
+          </div>
+    <% } %>
+<% } %>
+    <div class="text-center" id="user">
+        <hr><br>
+        <h1>User</h1>
+        <br><hr>
+        
+    <form class=" m-auto m-5" action="/user" method="POST" enctype="multipart/form-data">
+        <div class="container-img m-5">
+            <% if(!userImg) { %>
+                <img src="img/user-icon.png" alt="">
+            <% } else { %>
+                <img src= <%= userImg %> />
+            <% } %>
+            <input type="file" name="userFiles" accept="image/png, image/jpeg" multiple/>
+        </div>
+        <div class="inputs">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Change Username</label>
+                <input type="text" name="username" class="form-control" id="username" value="<%= name %>" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Change Email</label>
+                <input type="email" name="email" class="form-control" id="email" value="<%= email %>" aria-describedby="emailHelp">
+              </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+    </div>
+    <div class="d-flex justify-content-center m-3">
+        <a href="/logout"><button type="button" class="btn btn-dark m-1">Logout</button></a>
+    </div>
+</main>
+<%- include('partials/foot') -%>

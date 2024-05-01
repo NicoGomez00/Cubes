@@ -1,0 +1,34 @@
+<%- include('partials/head', { title: title || 'Sin título' }) -%>
+<%- include('partials/nav') , {log: log} %>
+
+<% if(alert != null) { %>
+    <% if(!alert) { %>
+        <div class="alert alert-danger" role="alert">
+            El nombre de usuario y/o contraseña ya existen
+          </div>
+    <% } %>
+<% } %>
+<div class="container m-auto d-flex justify-content-center">
+    <div class="border w-25 p-2 m-4">
+        <div class="text-center">
+            <h2>Sign Up</h2>
+        </div>
+        <form action="/signup" method="POST">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Name:</label>
+                <input type="text" class="form-control" name="username" id="usernameElementID" placeholder="Nombre de usuario" aria-describedby="emailHelp"/>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" id="emailElementID" placeholder="Correo electronico" value="@example.com"/>
+                </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control"  name="password" id="passwordElementID " placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

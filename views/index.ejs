@@ -1,0 +1,37 @@
+
+<%- include('partials/head', { title: title || 'Sin título' }) -%>
+<%- include('partials/nav') , {log: log} , {userImg :userImg}%>
+<main>
+    <div class="container">
+        <div>
+          <img class="m-5 p-5" src="img/tittle.png" alt="">
+        </div>
+        <div class="text-center">
+          <div class="" id="logos">
+            <img src="https://miro.medium.com/v2/resize:fit:680/1*7G9vb_q5MA8_C_8HtwMfqw.png" alt="js logo">
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_960_720.png" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/2560px-SQLite370.svg.png" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/P5js_Logo.svg/1280px-P5js_Logo.svg.png" alt="">
+            <img src="https://logovectorseek.com/wp-content/uploads/2019/10/bootstrap-logo-vector.png" alt="">
+          </div>
+        </div>
+        <div class="m-5">
+          <hr>
+          <h3 class="text-center">Lista de usuarios registrados</h3>
+          <div class="d-flex justify-content-around">
+            <ul>
+              <% for(let i = 0 ; i < usersArray.length ; i+=2) {%>
+                <li><%= usersArray[i].name %> <br><%= usersArray[i].email %> </li>
+            <% } %>
+            </ul>
+            <ul>
+              <% for(let i = 1 ; i < usersArray.length ; i+=2) {%>
+                <li><%= usersArray[i].name %> <br><%= usersArray[i].email %> </li>
+            <% } %>
+            </ul>
+          </div>
+          <hr>
+        </div>
+    </div>
+</main>
+<%- include('partials/foot') -%>
